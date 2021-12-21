@@ -1,0 +1,17 @@
+#!/bin/bash
+# kill any currentlty running mining
+killall -q wicminer
+killall -q WICWorker
+sleep 2
+rm -f toworker.ccc
+rm -f fromworker.resp
+touch fromworker.resp
+export WICSTATFILE=wic.stat
+source mp
+export WICTHREADS
+export WICENDHOUR
+export WICDEDICATED
+export WICRIPPER
+export LD_LIBRARY_PATH=.
+./wicminer $POOLADDR $MINERADDR | tee wicminer.log
+

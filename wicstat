@@ -1,0 +1,5 @@
+#! /bin/bash
+ps -C wicminer >/dev/null && echo "WIC Miner is Running" || echo "WIC Miner NOT running"
+ps -C wicminer >/dev/null && echo "WIC Worker is Running" || echo "WIC Worker NOT running"
+echo Performance History
+more wic.stat

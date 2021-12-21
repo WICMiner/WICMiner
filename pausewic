@@ -1,0 +1,6 @@
+#! /bin/bash
+# This will send a signal to temporarily pause the WIC Miner 
+# see www.aquilasys.com/wicminer/pause.html for more info
+killall -s USR1 WICWorker
+echo Mining has been paused freeing CPU and reducing heat
+ 

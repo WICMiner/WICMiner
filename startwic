@@ -1,0 +1,22 @@
+#!/bin/bash
+echo Starting WIC Miner... 
+# kill any currentlty running mining
+killall -q wicminer
+killall -q WICWorker
+sleep 2
+# Get IO files set
+rm -f toworker.ccc
+rm -f fromworker.resp
+touch fromworker.resp
+# setup the environment
+export WICSTATFILE=wic.stat
+source mp
+export WICTHREADS
+export WICENDHOUR
+export WICDEDICATED
+export WICRIPPER
+export LD_LIBRARY_PATH=.
+# launch miner in background
+nohup ./wicminer $POOLADDR $MINERADDR >wicminer.log 2>&1 &
+echo The WIC Miner has been Started
+echo Run wicstat to check status

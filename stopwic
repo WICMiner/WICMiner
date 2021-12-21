@@ -1,0 +1,6 @@
+#! /bin/bash
+# stopping the WIC Miner
+killall -q wicminer
+killall -q WICWorker
+echo The WIC Miner has been STOPPED
+
